@@ -1,13 +1,24 @@
 public class Immigrant {
-    public static void main(String[] args){
-        static boolean method{
-            return true;
-        }
-        static boolean tester{
-            return false;
-        }
+    // Main method - entry point of the program
+    public static void main(String[] args) {
+        Immigrant immigrant = new Immigrant();
+        
+        // Call the methods to test
+        System.out.println("Method: " + immigrant.method());
+        System.out.println("Tester: " + tester());
     }
 
+    // Non-static method
+    public Boolean method() {
+        return true;
+    }
+
+    // Static method
+    public static Boolean tester() {
+        return false;
+    }
+
+    // Other class methods
     public Boolean isAvailable() {
         return true;
     }
@@ -19,5 +30,4 @@ public class Immigrant {
     public Boolean updateForm() {
         return true;
     }
-
 }
