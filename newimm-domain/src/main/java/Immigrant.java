@@ -1,4 +1,9 @@
 public class Immigrant {
+    public static void main(String[] args){
+        static boolean method{
+            return true;
+        }
+    }
 
     public Boolean isAvailable() {
     return true;
