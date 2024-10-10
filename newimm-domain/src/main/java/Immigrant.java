@@ -3,6 +3,9 @@ public class Immigrant {
         static boolean method{
             return true;
         }
+        static boolean tester{
+            return false;
+        }
     }
 
     public Boolean isAvailable() {
