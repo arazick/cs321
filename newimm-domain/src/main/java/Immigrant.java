@@ -1,47 +1,33 @@
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 public class Immigrant {
-    
-    private Immigrant immigrant;
-    
-    @BeforeEach
-    public void setUp() {
-        immigrant = new Immigrant(); // Setup before each test
+    // Main method - entry point of the program
+    public static void main(String[] args) {
+        Immigrant immigrant = new Immigrant();
+        
+        // Call the methods to test
+        System.out.println("Method: " + immigrant.method());
+        System.out.println("Tester: " + tester());
     }
 
-    // Test method for isAvailable
-    @Test
-    public void testIsAvailableReturnsTrue() {
-        assertTrue(immigrant.isAvailable(), "isAvailable() should return true");
+    // Non-static method
+    public Boolean method() {
+        return true;
     }
 
-    // Test method for addForm
-    @Test
-    public void testAddFormReturnsTrue() {
-        assertTrue(immigrant.addForm(), "addForm() should return true");
+    // Static method
+    public static Boolean tester() {
+        return false;
     }
 
-    // Test method for updateForm
-    @Test
-    public void testUpdateFormReturnsTrue() {
-        assertTrue(immigrant.updateForm(), "updateForm() should return true");
+    // Other class methods
+    public Boolean isAvailable() {
+        return true;
     }
 
-    // Test static method tester
-    @Test
-    public void testStaticTesterReturnsFalse() {
-        assertFalse(Immigrant.tester(), "tester() should return false");
+    public Boolean addForm() {
+        return true;
     }
 
-    // Test method with different input types, if applicable (this depends on the implementation)
-    // You can expand tests to other domain objects such as US Citizen, Deceased Immigrant, etc.
-    
-    // Example for another domain object, e.g., DeceasedImmigrant
-    @Test
-    public void testDeceasedImmigrantExists() {
-        DeceasedImmigrant deceased = new DeceasedImmigrant();
-        assertTrue(deceased.immigrantExists(), "immigrantExists() should return true for DeceasedImmigrant");
+    public Boolean updateForm() {
+        return true;
     }
 }
