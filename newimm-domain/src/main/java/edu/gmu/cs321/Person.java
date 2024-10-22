@@ -10,4 +10,16 @@ public class Person {
         lastName = last;
         DOB = dob;
     }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getDOB(){
+        return DOB;
+    }
 }
