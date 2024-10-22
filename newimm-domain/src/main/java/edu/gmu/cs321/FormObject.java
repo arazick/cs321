@@ -1,3 +1,5 @@
+package edu.gmu.cs321;
+
 public class FormObject {
     private String applicant;
     private String deceased;
