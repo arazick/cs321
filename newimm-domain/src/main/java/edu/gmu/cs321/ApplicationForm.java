@@ -11,7 +11,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.DatePicker;;
+import javafx.scene.control.DatePicker;
 
 public class ApplicationForm extends Application {
     @Override
@@ -69,9 +69,15 @@ public class ApplicationForm extends Application {
 
         Button submit = new Button("Submit Form");
         grid.add(submit, 0, 19);
-        submit.setOnMouseClicked(grid.clear);
         primaryStage.setScene(scene);
         primaryStage.show();
+        submit.setOnMouseClicked(event -> {
+            grid.getChildren().clear();
+            Label submission = new Label("Thank you for your submission!");
+            welcome.setFont(Font.font("", FontWeight.BOLD, 30));
+            grid.setAlignment(Pos.CENTER);
+            grid.add(submission, 0, 0);
+        });
     }
 
     public static void main(String[] args) {
