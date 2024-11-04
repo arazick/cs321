@@ -1,4 +1,5 @@
 //Asma Razick
+package edu.gmu.cs321;
 
 public class FormObjectTest {
     FormObject form;

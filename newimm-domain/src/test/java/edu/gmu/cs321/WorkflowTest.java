@@ -1,3 +1,4 @@
+package edu.gmu.cs321;
 public class WorkflowTest {
 
     private WorkflowTest workflow;
