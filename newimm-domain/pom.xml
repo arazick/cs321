@@ -12,6 +12,12 @@
         <javafx.version>21.0.1</javafx.version>
     </properties>
     <dependencies>
+     <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.8.2</version>
+        <scope>test</scope>
+    </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
