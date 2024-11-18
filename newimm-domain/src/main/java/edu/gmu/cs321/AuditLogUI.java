@@ -64,10 +64,18 @@ public class AuditLogUI extends Application {
         Button addCustomLogBtn = new Button("Add Custom Log");
         Button clearLogsBtn = new Button("Clear Logs");
 
+        // Buttons for reviewer-specific actions
+        Button reviewCompletenessBtn = new Button("Review Completeness");
+        Button verifyAccuracyBtn = new Button("Verify Accuracy");
+        Button requestInfoBtn = new Button("Request Information");
+
         // Button layout
         HBox actionBtns = new HBox(10);
         actionBtns.setAlignment(Pos.BOTTOM_RIGHT);
-        actionBtns.getChildren().addAll(addReviewLogBtn, addApprovalLogBtn, addCustomLogBtn, clearLogsBtn);
+        actionBtns.getChildren().addAll(
+                addReviewLogBtn, addApprovalLogBtn, addCustomLogBtn, clearLogsBtn,
+                reviewCompletenessBtn, verifyAccuracyBtn, requestInfoBtn
+        );
         grid.add(actionBtns, 1, 4);
 
         // Button functionality
@@ -80,6 +88,11 @@ public class AuditLogUI extends Application {
             }
         });
         clearLogsBtn.setOnAction(e -> clearLogs());
+
+        // Reviewer-specific button functionality
+        reviewCompletenessBtn.setOnAction(e -> addLog("Completeness Review - Application checked for completeness"));
+        verifyAccuracyBtn.setOnAction(e -> addLog("Accuracy Verification - Application verified for accuracy"));
+        requestInfoBtn.setOnAction(e -> addLog("Information Request - Additional information requested from applicant"));
 
         // Action to update log display when a log is selected
         logListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
