@@ -1,4 +1,6 @@
-package edu.gmu.cs321;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -9,17 +11,29 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class AuditPage extends Application {
+	
+	private List<String> sampleForms = new ArrayList<>();
+	
+    private void forms() {
+        sampleForms.add("Form ID: 10001\nApplicant Name: Alice alice\nSubmission Date: 2024-11-01\nDetails: Reasons");
+        sampleForms.add("Form ID: 10002\nApplicant Name: Bob cob\nSubmission Date: 2024-10-15\nDetails: Reasons.");
+        sampleForms.add("Form ID: 10003\nApplicant Name: Carol carol\nSubmission Date: 2024-09-25\nDetails: Reasons.");
+        sampleForms.add("Form ID: 10004\nApplicant Name: David david\nSubmission Date: 2024-08-30\nDetails: Reasons.");
+        sampleForms.add("Form ID: 10005\nApplicant Name: Eva eva\nSubmission Date: 2024-07-20\nDetails: Reasons.");
+    }
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Audit Screen");
 
+        forms();
         // Grid layout setup
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_CENTER);
@@ -76,21 +90,26 @@ public class AuditPage extends Application {
             @Override
             public void handle(ActionEvent e) {
             	//Example DB.
-            	formDetails.setText("Form ID: 12345\nApplicant Name: John Doe\nSubmission Date: 2023-10-01\nDetails: Request for Document Return...");
+            	String randomForm = getRandomForm();
+                formDetails.setText(randomForm);
             }
         });
 
         submitReportBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //TODO
+                
+            	Alert alert = new Alert(Alert.AlertType.INFORMATION, "Issues submitted successfully!");
+                alert.showAndWait();
             }
         });
 
         approveBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //TODO 
+                
+            	Alert alert = new Alert(Alert.AlertType.INFORMATION, "Form approved successfully!");
+                alert.showAndWait();
             }
         });
 
@@ -98,6 +117,12 @@ public class AuditPage extends Application {
         Scene scene = new Scene(grid, 500, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    
+    
+    private String getRandomForm() {
+        Random random = new Random();
+        return sampleForms.get(random.nextInt(sampleForms.size())); // Random form.
     }
 
     public static void main(String[] args) {
